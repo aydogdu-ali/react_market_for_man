@@ -1,7 +1,7 @@
 import React from 'react'
 import {FaEdit, FaTrash} from "react-icons/fa"
 
-const List = ({list}) => {
+const List = ({list,removeItem}) => {
   return (
     <div className='list'>
         <h2>İçeriğim</h2>
@@ -17,7 +17,7 @@ const List = ({list}) => {
                   </button>
                   <button>
                  
-                    <FaTrash />{" "}
+                    <FaTrash onClick={()=>removeItem(id)}/>
                   </button>
                 </div>
               </div>
