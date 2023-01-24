@@ -1,11 +1,23 @@
 import List from './components/List';
 import Alert from './components/Alert';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+
+// localStorage attığımız veriyi çağıtıryoruz.
+const getLocalStorage = () => {
+  let list = localStorage.getItem("list");
+  if (list) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else {
+    return [];
+  }
+};
+
 
 function App() {
   const [text, SetText] = useState("")
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage());
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState("")
   const [alert, setAlert] = useState({show:false, type:"", message:""})
@@ -78,7 +90,7 @@ const removeItem =(id)=>{
   
 }
 
-// seçtiğimiz ürünü değiştirmek için fonksiyon tanımlıyoruz
+// seçtiğimiz ürünü değiştirmek için fonksiyon tanımlıyoruz.
 
 const editItem = (id)=>{
   const itemEdit = list.find((item)=>item.id ===id)
@@ -87,6 +99,15 @@ const editItem = (id)=>{
   SetText(itemEdit.title);
   
 }
+
+// ürünlerimizi LocalStorage kaydediyoruz.
+
+ useEffect(() => {
+   localStorage.setItem("list", JSON.stringify(list));
+  
+ }, [list]);
+
+
   return (
     <div className="App">
       <h2>Alışveriş Listesi</h2>
