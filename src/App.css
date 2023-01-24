@@ -7,6 +7,14 @@ input {
  height: 1.2rem; 
 }
 
+.alert-success {
+  background-color: aquamarine;
+}
+
+
+.alert-danger {
+  background-color: darkred;
+}
 .ekle-btn,.temizle-btn {
 width: 8rem;
 height: 1.5rem;

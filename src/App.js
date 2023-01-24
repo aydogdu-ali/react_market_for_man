@@ -7,7 +7,7 @@ function App() {
   const [text, SetText] = useState("")
   const [list, setList] = useState([])
   const [edit, setEdit] = useState(false)
-  const [editId, setEditId] = useState()
+  const [editId, setEditId] = useState("")
   const [alert, setAlert] = useState({show:false, type:"", message:""})
 
 
@@ -21,8 +21,20 @@ const handleSubmit= (e)=>{
   showAlert(true,"danger","lütfen ürün ekleyin")
   
   }
+  // ürün versa ve değiştirilmek isteniyorsa
   else if (text && edit){
-
+    setList(
+      list.map((item)=>{
+        if(item.id===editId){
+          return {...item, title:text}
+        }
+      return item
+      })
+    )
+    SetText("")
+    setEditId("")
+    setEdit(false)
+    showAlert(true, "success", `${text} değiştirildi` )
 }
 
   else {
@@ -56,17 +68,31 @@ clearAllList([])
 //listeden ürün çıkarma fonksiyonu
 
 const removeItem =(id)=>{
-  showAlert(true, "danger", `şeçtiğiniz ürün silindi`);
+  
+  
    setList(list.filter((item) => item.id !== id));
+    const itemName = list.find((item) => item.id === id);
+     SetText(itemName.title);
+    showAlert(true, "danger", `şeçtiğiniz ${itemName.title}  ürün silindi`);
+    SetText("")
+  
+}
 
+// seçtiğimiz ürünü değiştirmek için fonksiyon tanımlıyoruz
 
+const editItem = (id)=>{
+  const itemEdit = list.find((item)=>item.id ===id)
+  setEdit(true)
+  setEditId(id)
+  SetText(itemEdit.title);
+  
 }
   return (
     <div className="App">
       <h2>Alışveriş Listesi</h2>
 
       <form onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
+        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
         <input
           type="text"
           placeholder="2 ekmek alirmisin lütfen?"
@@ -79,7 +105,7 @@ const removeItem =(id)=>{
       </form>
       {list.length > 0 && (
         <div className="container">
-          <List list={list} removeItem={removeItem} />
+          <List list={list} removeItem={removeItem} editItem={editItem} />
           <button className="temizle-btn" onClick={handleClear}>
             Tümünü Sil
           </button>
