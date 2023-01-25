@@ -2,9 +2,10 @@
 
 .App {
   text-align: center;
-  background-color: aqua;
+  background-color: rgb(16, 138, 138);
   width: 50vw;
   padding-bottom: 2rem;
+  box-shadow: 2px 2px 3px;
 }
 
 input {
@@ -12,14 +13,20 @@ input {
   height: 1.8rem;
   border-radius: 10px;
   font-size: 1.0rem;
-  text-align: justify;
+   box-shadow: 2px 2px 3px;
+}
+
+input::placeholder{
+  text-align: center;
 }
 
 .ekle-btn {
   width: 8rem;
   height: 1.8rem;
+  margin-left: 0.2rem;
   background-color: rgb(153, 226, 43);
   border-radius: 10px;
+   border-color: rgb(60, 179, 13);
 }
 
 .temizle-btn {
@@ -27,6 +34,7 @@ input {
   height: 1.7rem;
   background-color: rgb(203, 10, 171);
   border-radius: 10px;
+  border-color: aliceblue;
 }
 
 /* Alert.jsx component css*/
@@ -76,13 +84,19 @@ small{
   justify-content: space-evenly;
 }
 
-.edit-btn,
-.delete-btn {
-  background: transparent;
+
+.del-btn {
+  background-color: crimson;
+ border-color: transparent;
+  cursor: pointer;
+  margin: 0 0.15rem;
+} 
+
+
+.edit-btn {
+  font-size: 1.2rem;
+  background-color: rgb(228, 206, 8);
   border-color: transparent;
   cursor: pointer;
   margin: 0 0.15rem;
-}
-.edit-btn {
-  font-size: 1.2rem;
 }

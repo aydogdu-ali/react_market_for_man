@@ -1,6 +1,7 @@
 import React from 'react'
-import {FaEdit, FaTrash} from "react-icons/fa"
+import {FaEdit, FaTrash} from "react-icons/fa" // react-icons kütüphanesinden import ediyoruz.
 
+// prosp ile gelen veri ve fonksiyonları yakalıyorum.
 const List = ({ list, removeItem, editItem }) => {
   return (
     <div className="list">
@@ -10,7 +11,7 @@ const List = ({ list, removeItem, editItem }) => {
           <div className="list-item" key={id}>
             <p>
            
-              <small>*</small> {title}
+              <small>-</small> {title}
             </p>
             <div className="btn">
               <button className="edit-btn">

@@ -33,7 +33,7 @@ const handleSubmit= (e)=>{
   showAlert(true,"danger","lütfen ürün ekleyin")
   
   }
-  // ürün versa ve değiştirilmek isteniyorsa
+  // ürün varsa ve değiştirilmek isteniyorsa
   else if (text && edit){
     setList(
       list.map((item)=>{
