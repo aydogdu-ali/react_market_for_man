@@ -56,7 +56,7 @@ const handleSubmit= (e)=>{
     // girilen ürünün Dom'da gösterilmesi için statete tutuyoruz.
     const newItem = {id: new  Date().getTime().toLocaleString(), title: text}
     setList ([...list, newItem])
-    // yeni ürün girilmesi için inputu tenizliyoruz.
+    // yeni ürün girilmesi için inputu temizliyoruz.
     SetText("")
   }
 }
@@ -85,7 +85,7 @@ const removeItem =(id)=>{
    setList(list.filter((item) => item.id !== id));
     const itemName = list.find((item) => item.id === id);
      SetText(itemName.title);
-    showAlert(true, "danger", `şeçtiğiniz ${itemName.title}  ürün silindi`);
+    showAlert(true, "danger", `seçtiğiniz ${itemName.title}   silindi`);
     SetText("")
   
 }
@@ -109,29 +109,33 @@ const editItem = (id)=>{
 
 
   return (
-    <div className="App">
-      <h2>Alışveriş Listesi</h2>
+    <div className="container">
+      <div className="App">
+        <h2>Alışveriş Listesi</h2>
 
-      <form onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
-        <input
-          type="text"
-          placeholder="2 ekmek alirmisin lütfen?"
-          value={text}
-          onChange={(e) => SetText(e.target.value)}
-        />
-        <button className="ekle-btn" type="submit">
-          {edit ? "Düzenle" : "Ekle"}
-        </button>
-      </form>
-      {list.length > 0 && (
-        <div className="container">
-          <List list={list} removeItem={removeItem} editItem={editItem} />
-          <button className="temizle-btn" onClick={handleClear}>
-            Tümünü Sil
+        <form onSubmit={handleSubmit}>
+          {alert.show && (
+            <Alert {...alert} removeAlert={showAlert} list={list} />
+          )}
+          <input
+            type="text"
+            placeholder="2 ekmek alirmisin lütfen?"
+            value={text}
+            onChange={(e) => SetText(e.target.value)}
+          />
+          <button className="ekle-btn" type="submit">
+            {edit ? "Düzenle" : "Ekle"}
           </button>
-        </div>
-      )}
+        </form>
+        {list.length > 0 && (
+          <div className="container">
+            <List list={list} removeItem={removeItem} editItem={editItem} />
+            <button className="temizle-btn" onClick={handleClear}>
+              Tümünü Sil
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

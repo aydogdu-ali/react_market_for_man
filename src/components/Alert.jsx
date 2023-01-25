@@ -13,7 +13,7 @@ const Alert = ({ type, message, removeAlert, list }) => {
   }, [list]); // list yani listemizi bağımlılık olarak tanımlıyoruz ki kullanıcı her bir işlemde 3 saniye beklemesin
   // list her değiştiğinde yeni duruma göre mesajını hemen değiştirsin
   return (
-    <div>
+    <div className='ikaz'>
       <p className={`alert alert-${type}`}>{message}</p>
     </div>
   );

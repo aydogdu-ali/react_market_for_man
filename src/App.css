@@ -1,22 +1,88 @@
+/* App.js component css*/
+
 .App {
   text-align: center;
+  background-color: aqua;
+  width: 50vw;
+  padding-bottom: 2rem;
 }
 
 input {
   width: 15rem;
- height: 1.2rem; 
+  height: 1.8rem;
+  border-radius: 10px;
+  font-size: 1.0rem;
+  text-align: justify;
 }
 
+.ekle-btn {
+  width: 8rem;
+  height: 1.8rem;
+  background-color: rgb(153, 226, 43);
+  border-radius: 10px;
+}
+
+.temizle-btn {
+  width: 8rem;
+  height: 1.7rem;
+  background-color: rgb(203, 10, 171);
+  border-radius: 10px;
+}
+
+/* Alert.jsx component css*/
+.ikaz {
+  display: flex;
+  justify-content: center;
+ 
+}
+.alert{
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem; 
+}
+
+.alet p {
+  flex-basis: 50%;
+
+  font-size: 1.4rem;
+}
 .alert-success {
-  background-color: aquamarine;
+  background-color: rgb(183, 74, 208);
 }
-
 
 .alert-danger {
   background-color: darkred;
 }
-.ekle-btn,.temizle-btn {
-width: 8rem;
-height: 1.5rem;
 
-} 
+/* List.jsx component css*/
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.1rem 0.9rem;
+  padding: 0.25rem;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+
+small{
+ 
+  font-size: 2.0rem;
+  margin-right: 0.01rem;
+ 
+}
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.edit-btn,
+.delete-btn {
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  margin: 0 0.15rem;
+}
+.edit-btn {
+  font-size: 1.2rem;
+}

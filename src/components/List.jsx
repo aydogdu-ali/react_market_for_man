@@ -4,17 +4,19 @@ import {FaEdit, FaTrash} from "react-icons/fa"
 const List = ({ list, removeItem, editItem }) => {
   return (
     <div className="list">
-      <h2>İçeriğim</h2>
-      {list.map((item) => {
+          {list.map((item) => {
         const { id, title } = item;
         return (
-          <div key={id}>
-            <p>{title}</p>
-            <div className="Edit-btn">
-              <button>
-                <FaEdit onClick={()=> editItem(id)} />{" "}
+          <div className="list-item" key={id}>
+            <p>
+           
+              <small>*</small> {title}
+            </p>
+            <div className="btn">
+              <button className="edit-btn">
+                <FaEdit onClick={() => editItem(id)} />{" "}
               </button>
-              <button>
+              <button className="del-btn">
                 <FaTrash onClick={() => removeItem(id)} />
               </button>
             </div>
