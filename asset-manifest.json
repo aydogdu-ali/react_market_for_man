@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react_market_for_man/static/css/main.6aa17e4c.css",
+    "main.js": "/react_market_for_man/static/js/main.1a653b14.js",
+    "static/js/787.b6ad3659.chunk.js": "/react_market_for_man/static/js/787.b6ad3659.chunk.js",
+    "index.html": "/react_market_for_man/index.html",
+    "main.6aa17e4c.css.map": "/react_market_for_man/static/css/main.6aa17e4c.css.map",
+    "main.1a653b14.js.map": "/react_market_for_man/static/js/main.1a653b14.js.map",
+    "787.b6ad3659.chunk.js.map": "/react_market_for_man/static/js/787.b6ad3659.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6aa17e4c.css",
+    "static/js/main.1a653b14.js"
+  ]
+}
